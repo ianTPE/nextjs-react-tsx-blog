@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+'use client';
+
+import { useState } from 'react';
 import { 
   Radar, 
   RadarChart, 
   PolarGrid, 
   PolarAngleAxis, 
   PolarRadiusAxis, 
-  ResponsiveContainer,
-  Legend
+  ResponsiveContainer
 } from 'recharts';
 
 const characteristicsData = [
@@ -81,8 +82,11 @@ const colors = {
   '數據分析與儀表板': '#FF5630'
 };
 
+// define Category type for proper typing
+type Category = keyof typeof colors;
+
 const ProjectCharacteristics = () => {
-  const [activeCategories, setActiveCategories] = useState({
+  const [activeCategories, setActiveCategories] = useState<Record<Category, boolean>>({
     'MVP與快速原型': true,
     '企業應用與流程自動化': true,
     '內部工具與管理後台': true,
@@ -91,7 +95,7 @@ const ProjectCharacteristics = () => {
     '數據分析與儀表板': false
   });
 
-  const handleLegendClick = (category) => {
+  const handleLegendClick = (category: Category) => {
     setActiveCategories({
       ...activeCategories,
       [category]: !activeCategories[category]
@@ -99,7 +103,7 @@ const ProjectCharacteristics = () => {
   };
 
   const renderRadars = () => {
-    return Object.keys(activeCategories).map((key) => {
+    return (Object.keys(activeCategories) as Category[]).map((key) => {
       if (activeCategories[key]) {
         return (
           <Radar
@@ -118,9 +122,10 @@ const ProjectCharacteristics = () => {
 
   const CustomizedLegend = () => (
     <div className="flex flex-wrap justify-center mt-4">
-      {Object.keys(colors).map((category) => (
-        <div 
-          key={category} 
+      {(Object.keys(colors) as Category[]).map((category) => (
+        <button
+          key={category}
+          type="button"
           className="flex items-center mx-2 my-1 cursor-pointer"
           onClick={() => handleLegendClick(category)}
         >
@@ -136,7 +141,7 @@ const ProjectCharacteristics = () => {
           >
             {category}
           </span>
-        </div>
+        </button>
       ))}
     </div>
   );
