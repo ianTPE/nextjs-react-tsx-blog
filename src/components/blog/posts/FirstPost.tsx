@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import type { BlogPost } from '../../../types/blog';
 import { withPostMetadata } from '../PostWrapper';
 
@@ -10,7 +11,7 @@ const metadata: BlogPost = {
   author: {
     name: 'Ian Chou',
     image: '/images/author.png',
-    bio: '全棧開發者，Next.js 愛好者',
+    bio: 'LC/NC開發者，AI 愛好者',
   },
   coverImage: '/images/first-post.jpg',
   tags: ['Next.js', 'React', 'TypeScript'],

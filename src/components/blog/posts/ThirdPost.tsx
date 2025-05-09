@@ -1,5 +1,5 @@
-import React from 'react';
-import { BlogPost } from '../../../types/blog';
+import type { BlogPost } from '../../../types/blog';
+import type { JSX } from 'react';
 import { withPostMetadata } from '../PostWrapper';
 
 // 文章元數據
@@ -11,7 +11,7 @@ const metadata: BlogPost = {
   author: {
     name: 'Ian Chou',
     image: '/images/author.png',
-    bio: '全棧開發者，Next.js 愛好者',
+    bio: 'LC/NC開發者，AI 愛好者',
   },
   coverImage: '/images/first-post.jpg', // 使用現有圖片作為示例
   tags: ['Next.js', 'React', '前端開發'],
