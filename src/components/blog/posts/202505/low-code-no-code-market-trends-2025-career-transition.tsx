@@ -1,4 +1,4 @@
-import React from 'react';
+import type { JSX } from 'react';
 import type { BlogPost } from '../../../../types/blog';
 import { withPostMetadata } from '../../PostWrapper';
 import LowCodeMarketDiagram from './components/low-code-market-diagram';
