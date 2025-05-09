@@ -28,9 +28,40 @@ export async function generateMetadata({
     };
   }
   
+  // 獲取當前域名用於構建完整 URL
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://example.com';
+  const coverImageUrl = `${baseUrl}${post.coverImage}`;
+  
   return {
     title: `${post.title} | 我的 Next.js 部落格`,
     description: post.description,
+    // Open Graph 標籤
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      type: 'article',
+      url: `${baseUrl}/blog/${post.slug}`,
+      images: [
+        {
+          url: coverImageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+      siteName: '我的 Next.js 部落格',
+      locale: 'zh_TW',
+      authors: [post.author.name],
+      publishedTime: post.date,
+      tags: post.tags,
+    },
+    // Twitter 卡片標籤
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+      images: [coverImageUrl],
+    },
   };
 }
 
