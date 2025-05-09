@@ -55,7 +55,7 @@ const getMobileName = (name: string) => {
     '電商與客戶關係管理(CRM)': '電商與CRM',
     '數據分析與儀表板': '數據分析'
   };
-  return nameMap[name] || name;>
+  return nameMap[name] || name;
 };
 
 const RankingChart = () => {
