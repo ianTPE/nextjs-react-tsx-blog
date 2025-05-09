@@ -2,6 +2,7 @@ import type { JSX } from 'react';
 import type { BlogPost } from '../../../../types/blog';
 import { withPostMetadata } from '../../PostWrapper';
 import LcncRankingChart from './components/lcnc-ranking-chart';
+import LcncProjectCharacteristics from './components/lcnc-project-characteristics';
 
 // 文章元數據
 const metadata: BlogPost = {
@@ -156,6 +157,10 @@ function FreelancerGuideForLowCode(): JSX.Element {
 <li>客戶通常期望持續的數據支持服務</li>
 </ul>
 <p><strong>市場挑戰</strong>：企業對數據隱私和安全的考慮往往使他們不願外包這類工作，除非是特定分析項目。</p>
+<div className="w-full overflow-hidden">
+  <LcncProjectCharacteristics />
+</div>
+
 <h2 id="-">各排名間的差異與共識</h2>
 <p>綜合分析所提供的不同排名，我們發現：</p>
 <ol>

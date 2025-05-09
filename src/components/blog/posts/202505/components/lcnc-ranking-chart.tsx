@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LabelList, Cell } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LabelList, Cell } from 'recharts';
 
 // 天青色的十六進制代碼
 const TIAN_QING_COLOR = '#88CCCA';
@@ -60,7 +60,7 @@ const RankingChart = () => {
             <XAxis type="number" domain={[0, 100]} />
             <YAxis dataKey="name" type="category" width={150} />
             <Tooltip 
-              formatter={(value, name, props) => [`前景評分: ${value}/100`, '']}
+              formatter={(value) => [`前景評分: ${value}/100`, '']}
               labelFormatter={(label) => `${label}`}
               wrapperStyle={{ 
                 backgroundColor: '#fff',
@@ -75,16 +75,16 @@ const RankingChart = () => {
               isAnimationActive={true}
               animationDuration={1500}
             >
-              {data.map((entry, index) => (
+              {data.map((entry) => (
                 <LabelList 
-                  key={index}
+                  key={entry.name}
                   dataKey="score" 
                   position="right" 
                   style={{ fontWeight: 'bold' }} 
                 />
               ))}
-              {data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={entry.color} />
+              {data.map((entry) => (
+                <Cell key={entry.name} fill={entry.color} />
               ))}
             </Bar>
           </BarChart>
