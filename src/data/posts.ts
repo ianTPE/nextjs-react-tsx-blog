@@ -1,4 +1,4 @@
-import { BlogPost } from '../types/blog';
+import type { BlogPost } from '../types/blog';
 import { PostRegistry } from '../components/blog/PostWrapper';
 import '../components/blog/PostLoader'; // 確保所有文章都已經被加載和註冊
 
@@ -7,9 +7,9 @@ export const allPosts: BlogPost[] = Object.values(PostRegistry).map(entry => ent
 
 // 建立組件映射表
 export const PostComponents: Record<string, React.ComponentType> = {};
-Object.entries(PostRegistry).forEach(([slug, entry]) => {
+for (const [slug, entry] of Object.entries(PostRegistry)) {
   PostComponents[slug] = entry.Component;
-});
+}
 
 // 通過 slug 獲取文章
 export const getPostBySlug = (slug: string): BlogPost | undefined => {
