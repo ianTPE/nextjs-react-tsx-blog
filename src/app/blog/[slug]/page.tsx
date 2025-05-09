@@ -1,3 +1,4 @@
+import React from 'react';
 import { notFound } from 'next/navigation';
 import PostHeader from '../../../components/blog/PostHeader';
 import PostCard from '../../../components/blog/PostCard';
@@ -55,12 +56,17 @@ export default function Page({
   // 從 PostComponents 中獲取對應的文章內容組件
   const PostContent = PostComponents[post.slug];
   
+  // 确保 PostContent 是一个有效的组件
+  if (!PostContent) {
+    return notFound();
+  }
+  
   return (
     <>
       <article className="blog-post">
         <PostHeader post={post} />
         <div className="post-content-wrapper">
-          <PostContent />
+          {React.createElement(PostContent)}
         </div>
         
         <div className="post-footer">

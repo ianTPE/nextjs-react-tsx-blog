@@ -1,7 +1,7 @@
 import React from 'react';
 import { ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ScatterChart, Scatter, ZAxis, Label } from 'recharts';
 
-const RankingComparison = () => {
+const LcncRankComparison = () => {
   // 定義不同來源的排名數據
   const rankingData = [
     { category: 'MVP與快速原型開發', source1: 1, source2: 5, source3: 6, source4: 3, avgRank: 3.75, consensus: 'Mixed' },
