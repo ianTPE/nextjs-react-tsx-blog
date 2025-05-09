@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ScatterChart, Scatter, ZAxis, Label } from 'recharts';
 
