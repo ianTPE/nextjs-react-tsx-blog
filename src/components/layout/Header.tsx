@@ -5,8 +5,8 @@ const Header: React.FC = () => {
   return (
     <header className="site-header">
       <div className="container">
-        <Link href="/">
-          您的部落格名稱
+        <Link href="/" className="site-logo">
+          我的 Next.js 部落格
         </Link>
         <nav className="site-nav">
           <ul>

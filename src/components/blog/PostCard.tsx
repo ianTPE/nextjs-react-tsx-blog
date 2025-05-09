@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { BlogPost } from '../../types/blog';
 
 interface PostCardProps {
@@ -26,8 +27,8 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
             <span key={tag} className="post-tag">{tag}</span>
           ))}
         </div>
-        <Link href={`/blog/${post.slug}`}>
-          Read more
+        <Link href={`/blog/${post.slug}`} className="read-more">
+          閱讀更多
         </Link>
       </div>
     </div>
