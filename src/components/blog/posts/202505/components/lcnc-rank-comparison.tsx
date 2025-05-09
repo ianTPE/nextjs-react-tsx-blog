@@ -204,4 +204,4 @@ const LcncRankComparison = () => {
   );
 };
 
-export default RankingComparison;
+export default LcncRankComparison;
