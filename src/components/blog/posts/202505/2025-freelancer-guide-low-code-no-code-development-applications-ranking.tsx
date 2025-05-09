@@ -35,8 +35,8 @@ function FreelancerGuideForLowCode(): JSX.Element {
   <LcncRankingChart />
 </div>
 
-<h2 id="-">應用領域排名與深度分析</h2><br/>
-<h3 id="1-mvp-">1. MVP與快速原型開發：概念驗證的首選</h3><br/>
+<h2 className="text-2xl md:text-3xl font-bold tracking-tight mt-8 mb-4 text-black dark:text-white">應用領域排名與深度分析</h2>
+<h3 className="text-xl md:text-2xl font-bold tracking-tight mt-6 mb-3 text-black dark:text-white">1. MVP與快速原型開發：概念驗證的首選</h3>
 <p><strong>市場定位</strong>：在各項排名中，MVP與快速原型開發普遍被認為是最適合自由工作者的領域。初創企業和創新項目團隊對於快速驗證概念的需求源源不絕。</p>
 <p><strong>核心優勢</strong>：</p>
 <ul>
@@ -51,7 +51,7 @@ function FreelancerGuideForLowCode(): JSX.Element {
 <li>成功交付的原型經常導致後續優化和擴展專案</li>
 </ul>
 <p><strong>行業見解</strong>：<br/>「低代碼MVP開發已成為產品市場驗證的黃金標準。我們看到無數初創公司能夠以傳統開發1/10的成本和時間測試其商業模式。」 — Bubble平台資深開發者</p>
-<h3 id="2-">2. 企業應用與流程自動化：數位轉型的引擎</h3><br/>
+<h3 className="text-xl md:text-2xl font-bold tracking-tight mt-6 mb-3 text-black dark:text-white">2. 企業應用與流程自動化：數位轉型的引擎</h3>
 <p><strong>轉型驅動</strong>：企業數位化轉型正全面展開，而流程自動化是核心需求。</p>
 <p><strong>應用場景</strong>：</p>
 <ul>
@@ -73,7 +73,7 @@ function FreelancerGuideForLowCode(): JSX.Element {
 <li>專案預算相對可觀（通常在$5,000-$50,000範圍）</li>
 </ul>
 <p><strong>為何排名高</strong>：企業願意投資於能夠提高效率的解決方案，且往往傾向於先測試小範圍的流程自動化，這創造了大量短期合約機會。</p>
-<h3 id="3-">3. 內部工具與管理後台：效率提升的關鍵</h3><br/>
+<h3 className="text-xl md:text-2xl font-bold tracking-tight mt-6 mb-3 text-black dark:text-white">3. 內部工具與管理後台：效率提升的關鍵</h3>
 <p><strong>市場需求</strong>：各規模企業都需要定制化內部工具來支援其特定業務流程，而低代碼平台能夠快速滿足這些需求。</p>
 <p><strong>典型應用</strong>：</p>
 <ul>
@@ -95,7 +95,7 @@ function FreelancerGuideForLowCode(): JSX.Element {
 <li>需要理解客戶的內部運作，但不需要長期維護承諾</li>
 </ul>
 <p><strong>行業見解</strong>：「內部工具開發是低代碼平台最實用的應用場景之一。客戶經常驚訝於我們能在幾週內交付他們原以為需要幾個月的系統。」—Retool認證開發者</p>
-<h3 id="4-">4. 行動應用與跨平台部署：移動優先的世界</h3><br/>
+<h3 className="text-xl md:text-2xl font-bold tracking-tight mt-6 mb-3 text-black dark:text-white">4. 行動應用與跨平台部署：移動優先的世界</h3>
 <p><strong>市場背景</strong>：行動應用需求持續增長，而低代碼工具正降低開發門檻。</p>
 <p><strong>平台生態</strong>：</p>
 <ul>
@@ -116,7 +116,7 @@ function FreelancerGuideForLowCode(): JSX.Element {
 <li>後續維護需求提供長期收入機會</li>
 </ul>
 <p><strong>挑戰</strong>：移動應用通常需要持續更新和適應新設備，這可能超出短期合約的範圍。</p>
-<h3 id="5-crm-">5. 電商與客戶關係管理（CRM）：數位商務的基石</h3><br/>
+<h3 className="text-xl md:text-2xl font-bold tracking-tight mt-6 mb-3 text-black dark:text-white">5. 電商與客戶關係管理（CRM）：數位商務的基石</h3>
 <p><strong>市場格局</strong>：電商和CRM領域有成熟的專業平台(如Shopify、Salesforce)，但也有針對自定義需求的低代碼解決方案。</p>
 <p><strong>應用場景</strong>：</p>
 <ul>
@@ -138,7 +138,7 @@ function FreelancerGuideForLowCode(): JSX.Element {
 <li>客戶期望一站式服務，包括SEO和轉化優化</li>
 </ul>
 <p><strong>差異點</strong>：與其他應用領域相比，電商和CRM專案通常需要更長期的合作關係，不僅僅是構建系統，還包括優化和維護。</p>
-<h3 id="6-">6. 數據分析與儀表板：數據驅動決策支持</h3><br/>
+<h3 className="text-xl md:text-2xl font-bold tracking-tight mt-6 mb-3 text-black dark:text-white">6. 數據分析與儀表板：數據驅動決策支持</h3>
 <p><strong>市場需求</strong>：企業數據分析需求持續增長，但通常由內部團隊或專業數據服務公司處理。</p>
 <p><strong>應用場景</strong>：</p>
 <ul>
@@ -164,7 +164,7 @@ function FreelancerGuideForLowCode(): JSX.Element {
   <LcncProjectCharacteristics />
 </div>
 
-<h2 id="-">各排名間的差異與共識</h2>
+<h2 className="text-2xl md:text-3xl font-bold tracking-tight mt-8 mb-4 text-black dark:text-white">各排名間的差異與共識</h2>
 <p>綜合分析所提供的不同排名，我們發現：</p>
 <ol>
 <li><strong>高度共識</strong>：MVP與快速原型開發、企業應用與流程自動化普遍被視為最具前景的領域。</li>
@@ -185,13 +185,13 @@ function FreelancerGuideForLowCode(): JSX.Element {
   <LcncPricingSkills />
 </div>
 
-<h2 id="-">自由工作者的策略建議</h2>
-<h3 id="1-">1. 專業定位策略</h3>
+<h2 className="text-2xl md:text-3xl font-bold tracking-tight mt-8 mb-4 text-black dark:text-white">自由工作者的策略建議</h2>
+<h3 className="text-xl md:text-2xl font-bold tracking-tight mt-6 mb-3 text-black dark:text-white">1. 專業定位策略</h3>
 <p><strong>尋找交叉專業</strong>：結合特定行業知識與技術能力將使您脫穎而出。例如，專注於醫療行業的內部工具開發或零售業的流程自動化。</p>
 <p><strong>平台專家認證</strong>：取得主要平台如Bubble、Webflow或Zapier的官方認證，可提高您的可信度和收費能力。</p>
 <p><strong>建立專業組合</strong>：專注於2-3個相關應用領域（例如MVP開發+內部工具，或流程自動化+數據儀表板），而不是試圖覆蓋所有領域。</p>
 
-<h3 id="2-">2. 技術選擇與投資</h3>
+<h3 className="text-xl md:text-2xl font-bold tracking-tight mt-6 mb-3 text-black dark:text-white">2. 技術選擇與投資</h3>
 <p><strong>平台選擇建議</strong>：</p>
 <ul>
 <li><strong>通用平台</strong>：Bubble、Webflow適合各類網頁應用和MVP</li>
@@ -206,7 +206,7 @@ function FreelancerGuideForLowCode(): JSX.Element {
 <li>SQL知識用於數據查詢和報告</li>
 <li>UI/UX設計基礎知識</li>
 </ul>
-<h3 id="3-">3. 業務發展策略</h3>
+<h3 className="text-xl md:text-2xl font-bold tracking-tight mt-6 mb-3 text-black dark:text-white">3. 業務發展策略</h3>
 <p><strong>定價模式</strong>：</p>
 <ul>
 <li>MVP和原型開發適合固定價格模式</li>
@@ -228,22 +228,22 @@ function FreelancerGuideForLowCode(): JSX.Element {
 <div className="w-full overflow-hidden">
   <LcncAdoptionTrends />
 </div>
-<h2 id="-">未來趨勢與機會</h2>
-<h3 id="-">即將到來的發展方向</h3>
+<h2 className="text-2xl md:text-3xl font-bold tracking-tight mt-8 mb-4 text-black dark:text-white">未來趨勢與機會</h2>
+<h3 className="text-xl md:text-2xl font-bold tracking-tight mt-6 mb-3 text-black dark:text-white">即將到來的發展方向</h3>
 <ol>
 <li><strong>AI增強的低代碼工具</strong>將進一步簡化開發並創造新機會</li>
 <li><strong>企業採用加速</strong>，尤其是在內部工具和流程自動化領域</li>
 <li><strong>垂直行業解決方案</strong>將成為專業自由工作者的差異化機會</li>
 <li><strong>集成與API生態系統</strong>將成為關鍵競爭力</li>
 </ol>
-<h3 id="-">新興機會領域</h3>
+<h3 className="text-xl md:text-2xl font-bold tracking-tight mt-6 mb-3 text-black dark:text-white">新興機會領域</h3>
 <ol>
 <li><strong>AI工作流和自動化</strong>：結合生成式AI與低代碼流程</li>
 <li><strong>物聯網應用與儀表板</strong>：連接和監控智能設備</li>
 <li><strong>合規和隱私解決方案</strong>：幫助企業滿足不斷變化的法規要求</li>
 <li><strong>可持續發展報告工具</strong>：幫助企業追踪和報告ESG指標</li>
 </ol>
-<h2 id="-">結論</h2>
+<h2 className="text-2xl md:text-3xl font-bold tracking-tight mt-8 mb-4 text-black dark:text-white">結論</h2>
 <p>低代碼/無代碼開發不僅僅是一種技術趨勢，而是正在重塑軟件開發行業的革命。對於自由工作者而言，掌握這些工具並理解不同應用領域的機會是至關重要的。</p>
 <p>從我們的分析中可以看出，<strong>MVP與快速原型開發</strong>以及<strong>企業應用與流程自動化</strong>目前提供了最佳的自由工作機會，這是由於其專案特性（短期、定義明確）和市場需求所驅動的。<strong>內部工具與管理後台</strong>緊隨其後，也提供了大量優質的短期合約機會。</p>
 <p>隨著技術的不斷進步和市場的持續成熟，這些排名可能會發生變化。然而，理解每個領域背後的基本驅動因素和客戶需求將使您能夠靈活調整策略，並在這個充滿活力的行業中取得長期成功。</p>
