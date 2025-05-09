@@ -99,7 +99,8 @@ const MarketTrendsAndAdoption = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+      {/* Changed from grid with 2 columns to vertical stack */}
+      <div className="grid grid-cols-1 gap-12 mb-8">
         <div>
           <h3 className="text-lg font-bold mb-4">低代碼/無代碼平台行業採用分佈</h3>
           <div className="h-64">
