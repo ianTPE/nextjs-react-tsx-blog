@@ -1,16 +1,23 @@
 import { notFound } from 'next/navigation';
 import PostHeader from '../../../components/blog/PostHeader';
 import { getPostBySlug, getAllPosts } from '../../../data/posts';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
-interface PageParams {
-  params: {
-    slug: string;
-  };
+// 静态参数生成
+export function generateStaticParams() {
+  const posts = getAllPosts();
+  
+  return posts.map(post => ({
+    slug: post.slug,
+  }));
 }
 
-// 動態生成 metadata
-export async function generateMetadata({ params }: PageParams): Promise<Metadata> {
+// 元数据生成 - 使用异步函数
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: { slug: string } 
+}): Promise<Metadata> {
   const post = getPostBySlug(params.slug);
   
   if (!post) {
@@ -25,16 +32,12 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
   };
 }
 
-// 定義靜態路徑
-export function generateStaticParams() {
-  const posts = getAllPosts();
-  
-  return posts.map(post => ({
-    slug: post.slug,
-  }));
-}
-
-export default function PostPage({ params }: PageParams) {
+// 页面组件
+export default function Page({ 
+  params 
+}: { 
+  params: { slug: string } 
+}) {
   const post = getPostBySlug(params.slug);
   
   if (!post) {
