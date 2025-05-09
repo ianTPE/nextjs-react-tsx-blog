@@ -12,7 +12,13 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
     <div className="post-card">
       {post.coverImage && (
         <div className="post-card-image">
-          <img src={post.coverImage} alt={post.title} />
+          <Image 
+            src={post.coverImage} 
+            alt={post.title} 
+            width={500}
+            height={300}
+            style={{ objectFit: 'cover', width: '100%', height: '200px' }}
+          />
         </div>
       )}
       <div className="post-card-content">

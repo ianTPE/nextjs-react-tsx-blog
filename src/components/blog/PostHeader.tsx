@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { BlogPost } from '../../types/blog';
 
 interface PostHeaderProps {
@@ -21,7 +22,14 @@ const PostHeader: React.FC<PostHeaderProps> = ({ post }) => {
       </div>
       <div className="post-author">
         {post.author.image && (
-          <img src={post.author.image} alt={post.author.name} className="author-image" />
+          <Image 
+            src={post.author.image} 
+            alt={post.author.name} 
+            className="author-image" 
+            width={50} 
+            height={50}
+            style={{ objectFit: 'cover', borderRadius: '50%' }}
+          />
         )}
         <div className="author-info">
           <h3 className="author-name">{post.author.name}</h3>
@@ -30,7 +38,13 @@ const PostHeader: React.FC<PostHeaderProps> = ({ post }) => {
       </div>
       {post.coverImage && (
         <div className="post-cover-image">
-          <img src={post.coverImage} alt={post.title} />
+          <Image 
+            src={post.coverImage} 
+            alt={post.title} 
+            width={1200} 
+            height={600}
+            style={{ width: '100%', height: 'auto', borderRadius: '8px' }}
+          />
         </div>
       )}
     </div>

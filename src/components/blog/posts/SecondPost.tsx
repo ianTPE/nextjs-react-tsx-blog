@@ -39,7 +39,7 @@ const Button: React.FC<ButtonProps> = ({
       
       <h2>使用類型斷言謹慎</h2>
       <p>
-        盡量避免過度使用類型斷言（type assertions）。如果您發現自己經常需要使用 "as" 語法，
+        盡量避免過度使用類型斷言（type assertions）。如果您發現自己經常需要使用 &quot;as&quot; 語法，
         這可能意味著您的類型設計需要改進。
       </p>
       
