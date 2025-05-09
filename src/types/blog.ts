@@ -15,6 +15,4 @@ export interface BlogPost {
   readTime?: number; // 閱讀時間（分鐘）
 }
 
-export interface BlogPostContent extends BlogPost {
-  renderContent: () => JSX.Element; // 函數返回 JSX 而不是存儲 Markdown
-}
+// 移除了之前的 BlogPostContent 介面，因為我們現在使用 PostRegistry

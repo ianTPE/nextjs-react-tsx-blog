@@ -1,6 +1,25 @@
 import React from 'react';
+import { BlogPost } from '../../../types/blog';
+import { withPostMetadata } from '../PostWrapper';
 
-const SecondPost: React.FC = () => {
+// 文章元數據
+const metadata: BlogPost = {
+  slug: 'second-post',
+  title: 'TypeScript 與 React 的最佳實踐',
+  description: '探索在 React 專案中使用 TypeScript 的有效方法',
+  date: '2025-05-07',
+  author: {
+    name: 'Ian Chou',
+    image: '/images/author.png',
+    bio: '全棧開發者，Next.js 愛好者',
+  },
+  coverImage: '/images/second-post.jpg',
+  tags: ['TypeScript', 'React', '最佳實踐'],
+  readTime: 7
+};
+
+// 文章內容組件
+function SecondPost(): JSX.Element {
   return (
     <div className="post-content">
       <p>
@@ -82,6 +101,7 @@ function List<T>({ items, renderItem }: ListProps<T>) {
       </p>
     </div>
   );
-};
+}
 
-export default SecondPost;
+// 使用高階組件包裝並自動註冊
+export default withPostMetadata(metadata, SecondPost);

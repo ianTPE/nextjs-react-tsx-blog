@@ -1,6 +1,25 @@
 import React from 'react';
+import { BlogPost } from '../../../types/blog';
+import { withPostMetadata } from '../PostWrapper';
 
-const FirstPost: React.FC = () => {
+// 文章元數據
+const metadata: BlogPost = {
+  slug: 'first-post',
+  title: '使用 Next.js 建立部落格',
+  description: '學習如何使用 Next.js 和 TypeScript 建立現代化部落格',
+  date: '2025-05-08',
+  author: {
+    name: 'Ian Chou',
+    image: '/images/author.png',
+    bio: '全棧開發者，Next.js 愛好者',
+  },
+  coverImage: '/images/first-post.jpg',
+  tags: ['Next.js', 'React', 'TypeScript'],
+  readTime: 5
+};
+
+// 文章內容組件
+function FirstPost(): JSX.Element {
   return (
     <div className="post-content">
       <p>
@@ -39,6 +58,7 @@ const FirstPost: React.FC = () => {
       </p>
     </div>
   );
-};
+}
 
-export default FirstPost;
+// 使用高階組件包裝並自動註冊
+export default withPostMetadata(metadata, FirstPost);

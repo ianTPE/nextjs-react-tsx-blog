@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "node scripts/generatePostLoader.js && next dev",
+    "build": "node scripts/generatePostLoader.js && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-loader": "node scripts/generatePostLoader.js"
   },
   "dependencies": {
     "react": "^19.0.0",

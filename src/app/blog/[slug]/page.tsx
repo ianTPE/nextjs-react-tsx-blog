@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import PostHeader from '../../../components/blog/PostHeader';
 import PostCard from '../../../components/blog/PostCard';
-import { getPostBySlug, getAllPosts } from '../../../data/posts';
+import { getPostBySlug, getAllPosts, PostComponents } from '../../../data/posts';
 import type { Metadata } from 'next';
 
 // 静态参数生成
@@ -52,7 +52,8 @@ export default function Page({
     .filter(p => p.tags.some(tag => post.tags.includes(tag))) // 有相同標籤
     .slice(0, 3); // 最多顯示3篇
   
-  const PostContent = post.renderContent;
+  // 從 PostComponents 中獲取對應的文章內容組件
+  const PostContent = PostComponents[post.slug];
   
   return (
     <>
