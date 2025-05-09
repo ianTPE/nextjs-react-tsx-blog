@@ -3,6 +3,7 @@ import type { BlogPost } from '../../../../types/blog';
 import { withPostMetadata } from '../../PostWrapper';
 import LcncRankingChart from './components/lcnc-ranking-chart';
 import LcncProjectCharacteristics from './components/lcnc-project-characteristics';
+import LcncPricingSkills from './components/lcnc-pricing-skills';
 
 // 文章元數據
 const metadata: BlogPost = {
@@ -157,9 +158,7 @@ function FreelancerGuideForLowCode(): JSX.Element {
 <li>客戶通常期望持續的數據支持服務</li>
 </ul>
 <p><strong>市場挑戰</strong>：企業對數據隱私和安全的考慮往往使他們不願外包這類工作，除非是特定分析項目。</p>
-<div className="w-full overflow-hidden">
-  <LcncProjectCharacteristics />
-</div>
+
 
 <h2 id="-">各排名間的差異與共識</h2>
 <p>綜合分析所提供的不同排名，我們發現：</p>
@@ -177,11 +176,19 @@ function FreelancerGuideForLowCode(): JSX.Element {
 </ul>
 </li>
 </ol>
+<div className="w-full overflow-hidden">
+  <LcncProjectCharacteristics />
+</div>
+
 <h2 id="-">自由工作者的策略建議</h2>
 <h3 id="1-">1. 專業定位策略</h3>
 <p><strong>尋找交叉專業</strong>：結合特定行業知識與技術能力將使您脫穎而出。例如，專注於醫療行業的內部工具開發或零售業的流程自動化。</p>
 <p><strong>平台專家認證</strong>：取得主要平台如Bubble、Webflow或Zapier的官方認證，可提高您的可信度和收費能力。</p>
 <p><strong>建立專業組合</strong>：專注於2-3個相關應用領域（例如MVP開發+內部工具，或流程自動化+數據儀表板），而不是試圖覆蓋所有領域。</p>
+<div className="w-full overflow-hidden">
+  <LcncPricingSkills />
+</div>
+
 <h3 id="2-">2. 技術選擇與投資</h3>
 <p><strong>平台選擇建議</strong>：</p>
 <ul>
