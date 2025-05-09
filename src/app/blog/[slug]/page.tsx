@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import PostHeader from '../../../components/blog/PostHeader';
+import PostCard from '../../../components/blog/PostCard';
 import { getPostBySlug, getAllPosts } from '../../../data/posts';
 import type { Metadata } from 'next';
 
