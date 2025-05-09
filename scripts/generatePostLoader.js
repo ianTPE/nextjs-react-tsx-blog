@@ -23,13 +23,16 @@ function getAllFiles(dir, fileList = []) {
   return fileList;
 }
 
+// 文章目錄和 PostLoader 文件的路徑
 const postsDir = path.join(__dirname, '../src/components/blog/posts');
+const postLoaderDir = path.join(__dirname, '../src/components/blog');
 const allPostFiles = getAllFiles(postsDir);
 
 // 基於文件路徑生成導入語句
 const importStatements = allPostFiles.map(filePath => {
-  // 獲取相對於posts目錄的路徑
-  const relativePath = path.relative(postsDir, filePath);
+  // 將文件路徑轉換為相對於 PostLoader.tsx 的路徑
+  // PostLoader.tsx 位於 src/components/blog 目錄中，而文章在 src/components/blog/posts 目錄中
+  const relativePath = path.relative(postLoaderDir, filePath);
   // 將反斜杠轉換為正斜杠（對於Windows系統）
   const importPath = `./${relativePath.replace(/\\/g, '/')}`;
   // 去除.tsx擴展名

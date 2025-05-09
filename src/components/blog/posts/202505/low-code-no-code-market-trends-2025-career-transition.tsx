@@ -20,7 +20,7 @@ const metadata: BlogPost = {
 };
 
 // 文章內容組件
-function FirstPost(): JSX.Element {
+function LowCodeNoCodeMarketTrends(): JSX.Element {
   return (
     <div className="post-content">
        <h2 className="text-2xl md:text-3xl font-bold tracking-tight mt-8 mb-4 text-black dark:text-white">職涯轉型：豐富經驗與創新思維的交融</h2>
@@ -139,4 +139,4 @@ function FirstPost(): JSX.Element {
 }
 
 // 使用高階組件包裝並自動註冊
-export default withPostMetadata(metadata, FirstPost);
+export default withPostMetadata(metadata, LowCodeNoCodeMarketTrends);
