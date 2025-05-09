@@ -46,7 +46,7 @@ const data = [
 ];
 
 // 為移動設備創建簡短的名稱
-const getMobileName = (name) => {
+const getMobileName = (name: string) => {
   const nameMap = {
     'MVP與快速原型開發': 'MVP原型',
     '企業應用與流程自動化': '企業自動化',
@@ -55,7 +55,7 @@ const getMobileName = (name) => {
     '電商與客戶關係管理(CRM)': '電商與CRM',
     '數據分析與儀表板': '數據分析'
   };
-  return nameMap[name] || name;
+  return nameMap[name] || name;>
 };
 
 const RankingChart = () => {
