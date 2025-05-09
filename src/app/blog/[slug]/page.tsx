@@ -3,8 +3,14 @@ import PostHeader from '../../../components/blog/PostHeader';
 import { getPostBySlug, getAllPosts } from '../../../data/posts';
 import { Metadata } from 'next';
 
+interface PageParams {
+  params: {
+    slug: string;
+  };
+}
+
 // 動態生成 metadata
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: PageParams): Promise<Metadata> {
   const post = getPostBySlug(params.slug);
   
   if (!post) {
@@ -20,7 +26,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 // 定義靜態路徑
-export async function generateStaticParams() {
+export function generateStaticParams() {
   const posts = getAllPosts();
   
   return posts.map(post => ({
@@ -28,7 +34,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function PostPage({ params }: { params: { slug: string } }) {
+export default function PostPage({ params }: PageParams) {
   const post = getPostBySlug(params.slug);
   
   if (!post) {
