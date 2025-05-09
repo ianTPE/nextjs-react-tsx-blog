@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LabelList } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LabelList, Cell } from 'recharts';
 
 // 天青色的十六進制代碼
 const TIAN_QING_COLOR = '#88CCCA';
@@ -82,7 +84,7 @@ const RankingChart = () => {
                 />
               ))}
               {data.map((entry, index) => (
-                <Bar key={`bar-${index}`} fill={entry.color} />
+                <Cell key={`cell-${index}`} fill={entry.color} />
               ))}
             </Bar>
           </BarChart>
