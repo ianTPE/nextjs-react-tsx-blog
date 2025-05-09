@@ -31,7 +31,7 @@ function FreelancerGuideForLowCode(): JSX.Element {
          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mt-8 mb-4 text-black dark:text-white">前言：無代碼革命與自由工作新機遇</h2>
 <p>在2025年的數位環境中，低代碼/無代碼（LC/NC）平台已從新興技術成長為主流開發方法。根據Gartner的預測，到2025年底，70%的新企業應用將使用低代碼或無代碼技術建構。對自由工作者和短期合約顧問而言，掌握這些工具不僅能夠快速交付項目，更能夠開拓全新的市場機會。<br/>
 然而，並非所有低代碼/無代碼應用領域都提供相同的就業前景。基於最新市場趨勢、客戶需求和專案特性，本文將深入剖析六大應用類型，從最適合自由工作者的領域到較不適合的領域，幫助您在這個蓬勃發展的市場中找到最佳定位。</p>
-<div className="w-full overflow-hidden">
+<div className="w-full overflow-x-auto">
   <LcncRankingChart />
 </div>
 
@@ -160,7 +160,7 @@ function FreelancerGuideForLowCode(): JSX.Element {
 <li>客戶通常期望持續的數據支持服務</li>
 </ul>
 <p><strong>市場挑戰</strong>：企業對數據隱私和安全的考慮往往使他們不願外包這類工作，除非是特定分析項目。</p>
-<div className="w-full overflow-hidden">
+<div className="w-full overflow-x-auto">
   <LcncProjectCharacteristics />
 </div>
 
@@ -181,7 +181,7 @@ function FreelancerGuideForLowCode(): JSX.Element {
 </li>
 </ol>
 
-<div className="w-full overflow-hidden">
+<div className="w-full overflow-x-auto">
   <LcncPricingSkills />
 </div>
 
@@ -225,7 +225,7 @@ function FreelancerGuideForLowCode(): JSX.Element {
 <li>建立維護和支持套餐</li>
 <li>開發可重用模板和組件</li>
 </ul>
-<div className="w-full overflow-hidden">
+<div className="w-full overflow-x-auto">
   <LcncAdoptionTrends />
 </div>
 <h2 className="text-2xl md:text-3xl font-bold tracking-tight mt-8 mb-4 text-black dark:text-white">未來趨勢與機會</h2>
@@ -248,7 +248,7 @@ function FreelancerGuideForLowCode(): JSX.Element {
 <p>從我們的分析中可以看出，<strong>MVP與快速原型開發</strong>以及<strong>企業應用與流程自動化</strong>目前提供了最佳的自由工作機會，這是由於其專案特性（短期、定義明確）和市場需求所驅動的。<strong>內部工具與管理後台</strong>緊隨其後，也提供了大量優質的短期合約機會。</p>
 <p>隨著技術的不斷進步和市場的持續成熟，這些排名可能會發生變化。然而，理解每個領域背後的基本驅動因素和客戶需求將使您能夠靈活調整策略，並在這個充滿活力的行業中取得長期成功。</p>
 <p>最後，無論您選擇專注於哪個領域，持續學習和適應變化將是在低代碼/無代碼自由工作領域取得成功的關鍵。隨著這些平台變得越來越強大，掌握它們的能力將使您成為數字轉型時代不可或缺的專業人士。</p>
-<div className="w-full overflow-hidden">
+<div className="w-full overflow-x-auto">
   <LcncRankComparison />
 </div>
   

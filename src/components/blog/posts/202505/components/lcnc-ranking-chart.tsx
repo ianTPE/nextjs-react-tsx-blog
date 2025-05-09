@@ -47,7 +47,7 @@ const data = [
 
 // 為移動設備創建簡短的名稱
 const getMobileName = (name: string) => {
-  const nameMap = {
+  const nameMap: Record<string, string> = {
     'MVP與快速原型開發': 'MVP原型',
     '企業應用與流程自動化': '企業自動化',
     '內部工具與管理後台': '內部工具',
