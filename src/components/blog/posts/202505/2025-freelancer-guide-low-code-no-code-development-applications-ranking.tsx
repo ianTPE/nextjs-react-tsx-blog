@@ -1,11 +1,12 @@
 import type { JSX } from 'react';
 import type { BlogPost } from '../../../../types/blog';
 import { withPostMetadata } from '../../PostWrapper';
+import LcncRankingChart from './components/lcnc-ranking-chart';
 
 // 文章元數據
 const metadata: BlogPost = {
   slug: '2025-freelancer-guide-low-code-no-code-development-applications-ranking',
-  title: '【2025年自由工作者指南】低代碼/無代碼開發6大應用領域完整排名與市場前景分析',
+  title: '【2025年自由工作者指南】低代碼/無代碼全端開發6大應用領域完整排名與市場前景分析',
   description: '隨著Gartner預測2025年70%的新企業應用將採用低代碼/無代碼技術建構，這個快速成長的領域為自由工作者帶來前所未有的機遇。本文深入分析了六大低代碼/無代碼應用領域——從MVP與快速原型開發到數據分析與儀表板——為自由工作者提供2025年最具前景的市場定位指南。透過全面的數據圖表、專案價格範圍、技能需求分析及市場趨勢預測，幫助您在這個預計2027年將達1476億美元規模的產業中，精準定位最適合您專業背景的高報酬領域。無論您是剛進入自由工作市場，還是尋求轉型的開發者，這份完整分析將是您制定職業策略的關鍵資源。',
   date: '2025-05-09',
   author: {
@@ -27,8 +28,7 @@ function FreelancerGuideForLowCode(): JSX.Element {
 <p>在2025年的數位環境中，低代碼/無代碼（LCNC）平台已從新興技術成長為主流開發方法。根據Gartner的預測，到2025年底，70%的新企業應用將使用低代碼或無代碼技術建構。對自由工作者和短期合約顧問而言，掌握這些工具不僅能夠快速交付項目，更能夠開拓全新的市場機會。</p>
 <p>然而，並非所有低代碼/無代碼應用領域都提供相同的就業前景。基於最新市場趨勢、客戶需求和專案特性，本文將深入剖析六大應用類型，從最適合自由工作者的領域到較不適合的領域，幫助您在這個蓬勃發展的市場中找到最佳定位。</p>
 <div className="w-full overflow-hidden">
-  {/* 图表组件暂时移除以排除故障 */}
-  <p><em>这里原本有一个低代码/无代码排名比较图表</em></p>
+  <LcncRankingChart />
 </div>
 
 <h2 id="-">應用領域排名與深度分析</h2>
