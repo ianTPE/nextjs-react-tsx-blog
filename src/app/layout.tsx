@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "我的 Next.js 部落格",
-  description: "使用 Next.js 和 TypeScript 構建的現代化部落格",
+  title: "我的純 React + TypeScript 部落格",
+  description: "使用 React + TypeScript 構建的現代化部落格",
 };
 
 export default function RootLayout({
