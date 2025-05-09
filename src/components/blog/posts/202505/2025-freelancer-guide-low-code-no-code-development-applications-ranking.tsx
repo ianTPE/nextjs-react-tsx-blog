@@ -179,7 +179,6 @@ function FreelancerGuideForLowCode(): JSX.Element {
 <div className="w-full overflow-hidden">
   <LcncProjectCharacteristics />
 </div>
-
 <h2 id="-">自由工作者的策略建議</h2>
 <h3 id="1-">1. 專業定位策略</h3>
 <p><strong>尋找交叉專業</strong>：結合特定行業知識與技術能力將使您脫穎而出。例如，專注於醫療行業的內部工具開發或零售業的流程自動化。</p>
@@ -188,7 +187,6 @@ function FreelancerGuideForLowCode(): JSX.Element {
 <div className="w-full overflow-hidden">
   <LcncPricingSkills />
 </div>
-
 <h3 id="2-">2. 技術選擇與投資</h3>
 <p><strong>平台選擇建議</strong>：</p>
 <ul>
