@@ -1,5 +1,4 @@
-import React from 'react';
-import { BlogPost } from '../../../types/blog';
+import type { BlogPost } from '../../../types/blog';
 import { withPostMetadata } from '../PostWrapper';
 
 // 文章元數據
