@@ -60,11 +60,14 @@ a:hover {
 /* 響應式調整 */
 @media (max-width: 768px) {
   .container {
-    padding: 0 1rem;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
   }
   
   .blog-post {
     padding: 1.5rem;
+    border-radius: 0;
   }
   
   .post-header .post-title {

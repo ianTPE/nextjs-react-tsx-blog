@@ -1,8 +1,26 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, BarChart, Bar } from 'recharts';
 
 const MarketTrendsAndAdoption = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // 檢測視窗大小變化
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // 初始檢查
+    checkIfMobile();
+    
+    // 監聽視窗大小變化
+    window.addEventListener('resize', checkIfMobile);
+    
+    // 清除監聽器
+    return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
+
   // 市場增長預測數據
   const marketGrowthData = [
     { year: 2020, value: 13.2 },
@@ -25,14 +43,14 @@ const MarketTrendsAndAdoption = () => {
     { name: '其他行業', value: 12 },
   ];
   
-  // 企業選擇低代碼/無代碼平台的原因數據
+  // 企業選擇低代碼/無代碼平台的原因數據 - 為移動設備提供簡短名稱
   const adoptionReasonsData = [
-    { name: '開發速度提升', value: 89 },
-    { name: '降低IT部門壓力', value: 73 },
-    { name: '成本效益', value: 68 },
-    { name: '業務敏捷性提高', value: 64 },
-    { name: '非技術人員賦能', value: 59 },
-    { name: '傳統開發人才短缺', value: 52 },
+    { name: '開發速度提升', shortName: '開發速度', value: 89 },
+    { name: '降低IT部門壓力', shortName: '降低IT壓力', value: 73 },
+    { name: '成本效益', shortName: '成本效益', value: 68 },
+    { name: '業務敏捷性提高', shortName: '業務敏捷', value: 64 },
+    { name: '非技術人員賦能', shortName: '人員賦能', value: 59 },
+    { name: '傳統開發人才短缺', shortName: '人才短缺', value: 52 },
   ];
 
   const COLORS = [
@@ -67,7 +85,10 @@ const MarketTrendsAndAdoption = () => {
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="year" />
-            <YAxis tickFormatter={(value) => `$${value}B`} label={{ value: '市場規模 (十億美元)', angle: -90, position: 'insideLeft', offset: 0 }} />
+            <YAxis 
+              tickFormatter={(value) => `$${value}B`} 
+              label={isMobile ? null : { value: '市場規模 (十億美元)', angle: -90, position: 'insideLeft', offset: 0 }} 
+            />
             <Tooltip formatter={(value) => [`$${value}B`, '市場規模']} />
             <Legend />
             <Line 
@@ -111,18 +132,20 @@ const MarketTrendsAndAdoption = () => {
                   cx="50%"
                   cy="50%"
                   labelLine={true}
-                  outerRadius={80}
+                  outerRadius={isMobile ? 60 : 80}
                   fill="#8884d8"
                   dataKey="value"
                   nameKey="name"
-                  label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                  label={({ name, percent }) => isMobile 
+                    ? `${(percent * 100).toFixed(0)}%` 
+                    : `${name}: ${(percent * 100).toFixed(0)}%`}
                 >
                   {industryAdoptionData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
                 <Tooltip content={<CustomizedTooltip />} />
-                <Legend layout="vertical" align="right" verticalAlign="middle" />
+                <Legend layout={isMobile ? "horizontal" : "vertical"} align={isMobile ? "center" : "right"} verticalAlign={isMobile ? "bottom" : "middle"} />
               </PieChart>
             </ResponsiveContainer>
           </div>
@@ -134,21 +157,38 @@ const MarketTrendsAndAdoption = () => {
             <BarChart
               data={adoptionReasonsData}
               layout="vertical"
-              margin={{ top: 5, right: 30, left: 150, bottom: 5 }}
+              margin={isMobile 
+                ? { top: 5, right: 30, left: 75, bottom: 5 } 
+                : { top: 5, right: 30, left: 150, bottom: 5 }}
             >
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis type="number" domain={[0, 100]} tickFormatter={(value) => `${value}%`} />
-              <YAxis dataKey="name" type="category" width={140} />
-              <Tooltip formatter={(value) => [`${value}%`, '企業佔比']} />
+              <YAxis 
+                dataKey={isMobile ? "shortName" : "name"} 
+                type="category" 
+                width={isMobile ? 70 : 140}
+                tick={{ fontSize: isMobile ? 11 : 14 }}
+              />
+              <Tooltip 
+                formatter={(value) => [`${value}%`, '企業佔比']} 
+                labelFormatter={(label) => {
+                  // 在移動版中顯示完整名稱
+                  if (isMobile) {
+                    const fullItem = adoptionReasonsData.find(item => item.shortName === label);
+                    return fullItem ? fullItem.name : label;
+                  }
+                  return label;
+                }}
+              />
               <Bar dataKey="value" name="企業佔比" fill="#00C49F" barSize={20} />
             </BarChart>
           </ResponsiveContainer>
         </div>
       </div>
 
-      <div className="mt-12">
+      <div className="mt-12 overflow-hidden">
         <h3 className="text-lg font-bold mb-4">各應用領域專業人才成長預測 (2025年比2023年)</h3>
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto -mx-4 px-4"> {/* 負邊距技巧允許表格在小屏幕上水平滾動 */}
           <table className="min-w-full border-collapse border border-gray-300">
             <thead>
               <tr className="bg-gray-100">

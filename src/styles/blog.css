@@ -782,8 +782,13 @@ p {
 
 /* 响應式設計 */
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
+  .container {
+    padding: 0;
+    max-width: 100%;
+  }
+  
+  .site-main {
+    padding: 1rem 0;
   }
   
   .posts-grid {
@@ -796,6 +801,8 @@ p {
   
   .blog-post {
     padding: 1.5rem;
+    border-radius: 0;
+    max-width: 100%;
   }
   
   .site-header .container {
@@ -805,6 +812,22 @@ p {
   
   .page-title {
     font-size: 2rem;
+  }
+  
+  .hero {
+    border-radius: 0;
+    padding: 2rem 1rem;
+  }
+  
+  .post-content-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .post-content-wrapper .w-full.overflow-hidden {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    width: calc(100% + 3rem);
   }
 }
 
