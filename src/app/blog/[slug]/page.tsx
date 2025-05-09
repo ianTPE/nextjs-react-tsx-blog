@@ -44,14 +44,45 @@ export default function Page({
     notFound();
   }
   
+  // 獲取相關文章 (同個標籤的其他文章)
+  const allPosts = getAllPosts();
+  const relatedPosts = allPosts
+    .filter(p => p.slug !== post.slug) // 排除當前文章
+    .filter(p => p.tags.some(tag => post.tags.includes(tag))) // 有相同標籤
+    .slice(0, 3); // 最多顯示3篇
+  
   const PostContent = post.renderContent;
   
   return (
-    <article className="blog-post">
-      <PostHeader post={post} />
-      <div className="post-content-wrapper">
-        <PostContent />
-      </div>
-    </article>
+    <>
+      <article className="blog-post">
+        <PostHeader post={post} />
+        <div className="post-content-wrapper">
+          <PostContent />
+        </div>
+        
+        <div className="post-footer">
+          <div className="post-share">
+            <h3>分享這篇文章</h3>
+            <div className="social-share">
+              <button className="share-button twitter">Twitter</button>
+              <button className="share-button facebook">Facebook</button>
+              <button className="share-button linkedin">LinkedIn</button>
+            </div>
+          </div>
+        </div>
+      </article>
+      
+      {relatedPosts.length > 0 && (
+        <div className="related-posts">
+          <h2 className="related-title">您可能還會喜歡</h2>
+          <div className="posts-grid">
+            {relatedPosts.map(relatedPost => (
+              <PostCard key={relatedPost.slug} post={relatedPost} />
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   );
 }

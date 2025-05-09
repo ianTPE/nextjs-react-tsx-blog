@@ -1,26 +1,77 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
+  --accent-color: #e74c3c;
+  --text-color: #333;
+  --light-text-color: #666;
+  --background-color: #f9f9f9;
+  --card-background: #fff;
+  --border-color: #eaeaea;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --hover-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  --transition-time: 0.3s;
+  --border-radius: 10px;
+  --container-width: 1200px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--background-color);
+  --color-foreground: var(--text-color);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background-color: #0f172a;
+    --card-background: #1e293b;
+    --text-color: #e2e8f0;
+    --light-text-color: #94a3b8;
+    --border-color: #334155;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+    --hover-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-geist-sans, Arial, Helvetica, sans-serif);
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-time) ease;
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .blog-post {
+    padding: 1.5rem;
+  }
+  
+  .post-header .post-title {
+    font-size: 2rem;
+  }
+  
+  .post-header .post-description {
+    font-size: 1.1rem;
+  }
 }

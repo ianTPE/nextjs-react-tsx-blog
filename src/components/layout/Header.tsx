@@ -6,7 +6,7 @@ const Header: React.FC = () => {
     <header className="site-header">
       <div className="container">
         <Link href="/" className="site-logo">
-          我的 Next.js 部落格
+          Ian's Next.js Blog
         </Link>
         <nav className="site-nav">
           <ul>
@@ -17,7 +17,7 @@ const Header: React.FC = () => {
             </li>
             <li>
               <Link href="/blog">
-                部落格
+                文章
               </Link>
             </li>
             <li>
