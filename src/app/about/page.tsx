@@ -174,11 +174,7 @@ export default function About() {
         </a>
       </section>
       
-      <style jsx>{`
-        .shadow-text {
-          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-      `}</style>
+
     </div>
   );
 }
