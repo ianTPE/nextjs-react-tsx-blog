@@ -17,7 +17,7 @@ const LcncRankComparison = () => {
   const prepareScatterData = () => {
     const result = [];
     
-    rankingData.forEach(item => {
+    for (const item of rankingData) {
       const baseData = {
         category: item.category,
         avgRank: item.avgRank,
@@ -51,28 +51,47 @@ const LcncRankComparison = () => {
         rank: item.source4,
         color: getColorForCategory(item.category)
       });
-    });
+    }
     
     return result;
   };
 
+  // 定義所有合法的類別鍵
+  type CategoryKey =
+    | 'MVP與快速原型開發'
+    | '企業應用與流程自動化'
+    | '內部工具與管理後台'
+    | '行動應用與跨平台部署'
+    | '電商與客戶關係管理(CRM)'
+    | '數據分析與儀表板';
+
   // 為每個類別分配顏色
-  const getColorForCategory = (category) => {
-    const colorMap = {
-      'MVP與快速原型開發': '#4C9AFF',
-      '企業應用與流程自動化': '#36B37E',
-      '內部工具與管理後台': '#00B8D9',
-      '行動應用與跨平台部署': '#6554C0',
-      '電商與客戶關係管理(CRM)': '#FFAB00',
-      '數據分析與儀表板': '#FF5630',
-    };
-    
-    return colorMap[category] || '#000000';
+  const colorMap: Record<CategoryKey, string> = {
+    'MVP與快速原型開發': '#4C9AFF',
+    '企業應用與流程自動化': '#36B37E',
+    '內部工具與管理後台': '#00B8D9',
+    '行動應用與跨平台部署': '#6554C0',
+    '電商與客戶關係管理(CRM)': '#FFAB00',
+    '數據分析與儀表板': '#FF5630',
   };
+
+  const getColorForCategory = (category: CategoryKey | string) => {
+    return colorMap[category as CategoryKey] || '#000000';
+  };
+
 
   const scatterData = prepareScatterData();
 
-  const CustomTooltip = ({ active, payload }) => {
+  interface ScatterDataPoint {
+    category: string;
+    source: string;
+    rank: number;
+    avgRank: number;
+    consensus: string;
+    // Add other fields if needed
+  }
+
+  const CustomTooltip = ({ active, payload }: { active?: boolean; payload?: { payload: ScatterDataPoint }[] }) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       
