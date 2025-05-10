@@ -103,7 +103,7 @@ export default function About() {
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="w-40 h-40 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center">
             {/* 如果有作者照片，可以啟用下面的 Image 組件 */}
-            {/* <Image src="/images/author.jpg" alt="Ian" width={160} height={160} /> */}
+            <Image src="/images/author.png" alt="Ian" width={160} height={160} />
             <span className="text-5xl text-gray-300">👤</span>
           </div>
           
@@ -120,8 +120,9 @@ export default function About() {
             </div>
             <div className="flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
+  <title>Email icon</title>
+  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+</svg>
               <a href="mailto:ian@wo94.top" className="text-blue-600 hover:text-blue-800 transition-colors">
                 ian@wo94.top
               </a>

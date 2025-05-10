@@ -11,7 +11,18 @@ export default function AboutHero() {
         </p>
       </div>
       <div className="relative h-60 md:h-80 w-full rounded-lg overflow-hidden mb-8">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 z-10"></div>
+        {/* Background hero image */}
+        <Image 
+          src="/images/AboutHero.jpg"
+          alt="Hero background"
+          fill
+          priority
+          className="object-cover object-center z-0"
+          sizes="100vw"
+        />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 z-10" />
+        {/* Text overlay */}
         <div className="absolute inset-0 flex items-center justify-center z-20">
           <h2 className="text-4xl md:text-5xl font-bold text-white shadow-text">Ian&apos;s Vibe Coding Blog</h2>
         </div>
