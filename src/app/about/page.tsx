@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import AboutHero from '../../components/AboutHero';
 
 export const metadata: Metadata = {
   title: '關於 | 我的 Next.js 部落格',
@@ -10,20 +11,7 @@ export default function About() {
   return (
     <div className="about-page">
       {/* Hero section */}
-      <section className="mb-12 text-center">
-        <h1 className="text-3xl md:text-4xl font-bold mb-6">關於此部落格</h1>
-        <div className="max-w-3xl mx-auto">
-          <p className="text-xl text-gray-600 mb-8">
-            一個結合 AI 協作與極簡開發的現代化 React 部落格
-          </p>
-        </div>
-        <div className="relative h-60 md:h-80 w-full rounded-lg overflow-hidden mb-8">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 z-10"></div>
-          <div className="absolute inset-0 flex items-center justify-center z-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-white shadow-text">Ian's Vibe Coding Blog</h2>
-          </div>
-        </div>
-      </section>
+      <AboutHero />
 
       {/* Blog bilingual summary section */}
       <section className="mb-12 p-8 bg-gradient-to-br from-sky-50 to-indigo-50 rounded-xl shadow-sm">
