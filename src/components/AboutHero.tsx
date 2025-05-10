@@ -25,11 +25,11 @@ export default function AboutHero() {
         {/* Text overlay */}
         <div className="absolute inset-0 flex items-center justify-center z-20">
           <h2
-  className="text-4xl md:text-5xl font-bold shadow-text"
-  style={{ color: '#fff', textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}
->
-  Ian&apos;s Mike Coding Blog
-</h2>
+            className="text-4xl md:text-5xl font-bold shadow-text"
+            style={{ color: '#fff', textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}
+          >
+            Ian&apos;s Vibe Coding Blog
+          </h2>
         </div>
       </div>
       <style jsx>{`
