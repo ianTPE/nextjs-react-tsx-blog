@@ -6,7 +6,7 @@ const Header: React.FC = () => {
     <header className="site-header">
       <div className="container">
         <Link href="/" className="site-logo">
-          Ian's Next.js Blog
+          Ian's Vibe Coding Blog
         </Link>
         <nav className="site-nav">
           <ul>

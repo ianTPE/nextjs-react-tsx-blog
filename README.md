@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ian's Vibe Coding Blog
 
-## Getting Started
+這是一個由「純 React + TypeScript」打造的現代化部落格，強調極簡 vibe coding、AI 協作，以及內容與結構的彈性。本站內容大多由 Claude 產生 React 組件，並結合 Windsurf OpenAI 進行架構整理，讓寫作流程極度簡化。
 
-First, run the development server:
+## 特色
+- **純 React + TypeScript**：不依賴特定框架，未來也可能用 Vite 重構。
+- **AI 協作**：文章內容與元件多由 Claude 產生，並用 Claude + Windsurf OpenAI 協作整理網站。
+- **極簡 vibe coding**：大部分內容都是「vibe code」產生，幾乎不需要手動 coding。
+- **不再使用 MDX**：因為 Claude 產生的 React 組件直接用 MDX 會有問題，最後決定純用 React + TypeScript。
+
+## 技術棧
+- React 19.0.0
+- TypeScript 5
+- Tailwind CSS 4
+- Next.js 15.3.2
+
+## 寫作流程
+1. 使用 Claude 生成 blog 內容（React 組件）。
+2. Claude + Windsurf OpenAI 協作整理、架構整個網站。
+3. 幾乎不需要手動寫 code，大多是「vibe code」產物。
+
+## 如何啟動
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+然後開啟 [http://localhost:3000](http://localhost:3000) 觀看網站。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 聯絡作者
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+如有任何問題或合作需求，歡迎來信：
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**ian@wo94.top**
