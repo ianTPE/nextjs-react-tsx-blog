@@ -102,9 +102,14 @@ export default function About() {
       <section className="mb-12 bg-white p-8 rounded-xl shadow-sm">
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="w-40 h-40 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center">
-            {/* 如果有作者照片，可以啟用下面的 Image 組件 */}
-            <Image src="/images/author.png" alt="Ian" width={160} height={160} />
-            <span className="text-5xl text-gray-300">👤</span>
+            {/* 作者照片 */}
+            <Image 
+              src="/images/author.png" 
+              alt="Ian" 
+              width={160} 
+              height={160} 
+              className="object-cover w-full h-full"
+            />
           </div>
           
           <div className="flex-1">

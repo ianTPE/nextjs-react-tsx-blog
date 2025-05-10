@@ -24,12 +24,12 @@ export default function AboutHero() {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 z-10" />
         {/* Text overlay */}
         <div className="absolute inset-0 flex items-center justify-center z-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-white shadow-text">Ian&apos;s Vibe Coding Blog</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-white shadow-text">Ian&apos;s Mike Coding Blog</h2>
         </div>
       </div>
       <style jsx>{`
         .shadow-text {
-          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+          text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
         }
       `}</style>
     </section>
