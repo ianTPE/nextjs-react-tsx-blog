@@ -1,13 +1,15 @@
 'use client';
 
 import React from 'react';
-import type { BlogPost } from '../../../../types/blog';
-import { withPostMetadata } from '../../PostWrapper';
-import LcncRankingChart from './components/lcnc-ranking-chart';
-import LcncProjectCharacteristics from './components/lcnc-project-characteristics';
-import LcncPricingSkills from './components/lcnc-pricing-skills';
-import LcncAdoptionTrends from './components/lcnc-adoption-trends';
-import LcncRankComparison from './components/lcnc-rank-comparison';
+import type { BlogPost } from '../../../types/blog';
+import { withPostMetadata } from '../PostWrapper';
+import {
+  LcncRankingChart,
+  LcncProjectCharacteristics,
+  LcncPricingSkills,
+  LcncAdoptionTrends,
+  LcncRankComparison
+} from '@/components/charts';
 
 // 文章元數據
 const metadata: BlogPost = {

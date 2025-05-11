@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import type { BlogPost } from '../../../../types/blog';
-import { withPostMetadata } from '../../PostWrapper';
+import type { BlogPost } from '../../../types/blog';
+import { withPostMetadata } from '../PostWrapper';
 
 // 文章元數據
 const metadata: BlogPost = {

@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import type { BlogPost } from '../../../../types/blog';
-import { withPostMetadata } from '../../PostWrapper';
-import LowCodeMarketDiagram from './components/low-code-market-diagram';
+import type { BlogPost } from '../../../types/blog';
+import { withPostMetadata } from '../PostWrapper';
+import { LowCodeMarketDiagram } from '@/components/charts';
 
 // 文章元數據
 const metadata: BlogPost = {
