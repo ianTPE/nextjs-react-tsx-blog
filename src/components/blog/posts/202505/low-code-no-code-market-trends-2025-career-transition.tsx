@@ -1,4 +1,4 @@
-import type { JSX } from 'react';
+import React from 'react';
 import type { BlogPost } from '../../../../types/blog';
 import { withPostMetadata } from '../../PostWrapper';
 import LowCodeMarketDiagram from './components/low-code-market-diagram';
@@ -20,7 +20,7 @@ const metadata: BlogPost = {
 };
 
 // 文章內容組件
-function LowCodeNoCodeMarketTrends(): JSX.Element {
+function LowCodeNoCodeMarketTrends() {
   return (
     <div className="post-content">
        <h2 className="text-2xl md:text-3xl font-bold tracking-tight mt-8 mb-4 text-black dark:text-white">職涯轉型：豐富經驗與創新思維的交融</h2>
