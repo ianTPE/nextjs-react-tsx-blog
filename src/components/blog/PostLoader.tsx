@@ -3,6 +3,7 @@ import React from 'react';
 
 // 自動導入所有文章
 import './posts/202505/2025-freelancer-guide-low-code-no-code-development-applications-ranking';
+import './posts/202505/ai-prd-devops-integration-guide-2025';
 import './posts/202505/low-code-no-code-market-trends-2025-career-transition';
 import './posts/FirstPost';
 import './posts/SecondPost';

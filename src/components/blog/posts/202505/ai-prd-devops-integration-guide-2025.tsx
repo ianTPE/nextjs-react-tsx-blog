@@ -393,8 +393,6 @@ const campaignRequirements = socialTrendAnalyzer
         </svg>
       </div>
     </div>
-  );
-
   return (
     <article className="max-w-4xl mx-auto px-4 py-8">
       <header className="mb-12">
