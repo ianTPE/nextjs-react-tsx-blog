@@ -18,6 +18,31 @@ const metadata: BlogPost = {
   readTime: 15
 };
 
+
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+  Radar,
+  LineChart,
+  Line,
+  PieChart,
+  Pie,
+  Cell,
+  Treemap,
+  ComposedChart,
+  Area
+} from 'recharts';
+
 interface TableData {
   headers: string[];
   rows: string[][];
@@ -44,18 +69,18 @@ const Table: React.FC<{ data: TableData }> = ({ data }) => (
     <table className="min-w-full border-collapse border border-gray-300">
       <thead>
         <tr className="bg-gray-100">
-          {data.headers.map((header) => (
-            <th key={header} className="border border-gray-300 px-4 py-2 text-left font-semibold">
+          {data.headers.map((header, index) => (
+            <th key={index} className="border border-gray-300 px-4 py-2 text-left font-semibold">
               {header}
             </th>
           ))}
         </tr>
       </thead>
       <tbody>
-        {data.rows.map((row) => (
-          <tr key={row.join('-')} className={data.rows.indexOf(row) % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+        {data.rows.map((row, rowIndex) => (
+          <tr key={rowIndex} className={rowIndex % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
             {row.map((cell, cellIndex) => (
-              <td key={data.headers[cellIndex]} className="border border-gray-300 px-4 py-2">
+              <td key={cellIndex} className="border border-gray-300 px-4 py-2">
                 {cell}
               </td>
             ))}
@@ -86,7 +111,145 @@ const DiagramBlock: React.FC<{ children: React.ReactNode }> = ({ children }) => 
   </div>
 );
 
-const BlogPostPage: React.FC = () => {
+// 圖表組件
+const CoreArchitecture = () => (
+  <div className="w-full p-6 bg-white rounded-lg shadow-lg mb-8">
+    <h3 className="text-xl font-bold mb-4 text-center">AI + PRD + DevOps 核心架構</h3>
+    <div className="relative w-full max-w-4xl mx-auto">
+      <svg viewBox="0 0 800 400" className="w-full">
+        {/* 背景裝飾 */}
+        <defs>
+          <linearGradient id="gradientBg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style={{ stopColor: '#f3f4f6', stopOpacity: 1 }} />
+            <stop offset="100%" style={{ stopColor: '#e5e7eb', stopOpacity: 1 }} />
+          </linearGradient>
+          <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="2" dy="2" stdDeviation="3" floodOpacity="0.3" />
+          </filter>
+        </defs>
+        
+        {/* 中心圓形 */}
+        <circle cx="400" cy="200" r="80" fill="url(#gradientBg)" stroke="#6366f1" strokeWidth="3" filter="url(#shadow)" />
+        <text x="400" y="190" textAnchor="middle" className="text-lg font-bold">AI 引擎</text>
+        <text x="400" y="210" textAnchor="middle" className="text-sm">智能決策核心</text>
+        
+        {/* 三個主要組件 */}
+        {/* PRD 組件 */}
+        <rect x="50" y="150" width="160" height="100" rx="10" fill="#dbeafe" stroke="#3b82f6" strokeWidth="2" filter="url(#shadow)" />
+        <text x="130" y="185" textAnchor="middle" className="text-base font-semibold">智能 PRD</text>
+        <text x="130" y="205" textAnchor="middle" className="text-sm">需求自動生成</text>
+        <text x="130" y="225" textAnchor="middle" className="text-sm">優先級預測</text>
+        
+        {/* DevOps 組件 */}
+        <rect x="590" y="150" width="160" height="100" rx="10" fill="#dcfce7" stroke="#22c55e" strokeWidth="2" filter="url(#shadow)" />
+        <text x="670" y="185" textAnchor="middle" className="text-base font-semibold">DevOps 自動化</text>
+        <text x="670" y="205" textAnchor="middle" className="text-sm">CI/CD 優化</text>
+        <text x="670" y="225" textAnchor="middle" className="text-sm">智能部署</text>
+        
+        {/* 運營數據 組件 */}
+        <rect x="320" y="300" width="160" height="80" rx="10" fill="#fef3c7" stroke="#f59e0b" strokeWidth="2" filter="url(#shadow)" />
+        <text x="400" y="330" textAnchor="middle" className="text-base font-semibold">運營數據</text>
+        <text x="400" y="350" textAnchor="middle" className="text-sm">性能指標反饋</text>
+        
+        {/* 箭頭連接 */}
+        <path d="M 210 200 Q 300 150 320 200" fill="none" stroke="#3b82f6" strokeWidth="3" markerEnd="url(#arrowhead)" />
+        <path d="M 480 200 Q 500 150 590 200" fill="none" stroke="#22c55e" strokeWidth="3" markerEnd="url(#arrowhead)" />
+        <path d="M 670 250 Q 600 300 480 340" fill="none" stroke="#f59e0b" strokeWidth="3" markerEnd="url(#arrowhead)" />
+        <path d="M 320 340 Q 200 300 130 250" fill="none" stroke="#ef4444" strokeWidth="3" markerEnd="url(#arrowhead)" />
+        
+        {/* 箭頭定義 */}
+        <defs>
+          <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#374151" />
+          </marker>
+        </defs>
+        
+        {/* 流程標籤 */}
+        <text x="265" y="140" textAnchor="middle" className="text-sm font-medium">需求分析</text>
+        <text x="535" y="140" textAnchor="middle" className="text-sm font-medium">自動交付</text>
+        <text x="580" y="310" textAnchor="middle" className="text-sm font-medium">數據收集</text>
+        <text x="220" y="310" textAnchor="middle" className="text-sm font-medium">模型優化</text>
+      </svg>
+    </div>
+  </div>
+);
+
+const BlogPost: React.FC = () => {
+  // 圖表數據
+  const benefitData = [
+    {
+      metric: '需求準確率',
+      traditional: 65,
+      ai: 92,
+      fullMark: 100,
+    },
+    {
+      metric: '開發效率',
+      traditional: 40,
+      ai: 80,
+      fullMark: 100,
+    },
+    {
+      metric: '部署成功率',
+      traditional: 85,
+      ai: 98,
+      fullMark: 100,
+    },
+    {
+      metric: '故障響應速度',
+      traditional: 30,
+      ai: 90,
+      fullMark: 100,
+    },
+    {
+      metric: '代碼質量',
+      traditional: 75,
+      ai: 92,
+      fullMark: 100,
+    },
+    {
+      metric: '成本效益',
+      traditional: 50,
+      ai: 85,
+      fullMark: 100,
+    },
+  ];
+
+  const techStackData = [
+    { category: 'AI 需求分析', tools: 'GPT-4, BERT, AWS Comprehend', adoption: 85 },
+    { category: '智能編碼', tools: 'GitHub Copilot, CodeWhisperer', adoption: 75 },
+    { category: '自適應流水線', tools: 'Harness AI, Azure ML', adoption: 60 },
+    { category: '智能運維', tools: 'Moogsoft, Google AIOps', adoption: 70 },
+    { category: '數據閉環', tools: 'MLflow, Elasticsearch', adoption: 65 },
+  ];
+
+  const industryData = [
+    { name: '智能製造', value: 25, color: '#3b82f6' },
+    { name: '金融科技', value: 20, color: '#10b981' },
+    { name: '醫療健康', value: 15, color: '#f59e0b' },
+    { name: '零售電商', value: 15, color: '#ef4444' },
+    { name: '汽車工業', value: 10, color: '#8b5cf6' },
+    { name: '其他產業', value: 15, color: '#6b7280' },
+  ];
+
+  const roiTimelineData = [
+    { month: '第1月', roi: -20, investment: 100, return: 80 },
+    { month: '第3月', roi: -5, investment: 150, return: 145 },
+    { month: '第6月', roi: 30, investment: 200, return: 260 },
+    { month: '第9月', roi: 85, investment: 220, return: 407 },
+    { month: '第12月', roi: 150, investment: 240, return: 600 },
+    { month: '第18月', roi: 220, investment: 260, return: 832 },
+  ];
+
+  const industryApplicationData = [
+    { industry: '智能製造', prd: 90, devops: 85, aiops: 88, overall: 88 },
+    { industry: '金融科技', prd: 95, devops: 90, aiops: 92, overall: 92 },
+    { industry: '醫療健康', prd: 85, devops: 75, aiops: 80, overall: 80 },
+    { industry: '零售電商', prd: 88, devops: 82, aiops: 85, overall: 85 },
+    { industry: '汽車工業', prd: 92, devops: 88, aiops: 90, overall: 90 },
+  ];
+
+  // 表格數據
   const toolsTableData: TableData = {
     headers: ['領域', '技術/工具', '功能範例', '實施要點'],
     rows: [
@@ -167,6 +330,71 @@ const campaignRequirements = socialTrendAnalyzer
     budgetConstraint: '$50,000'
   });`;
 
+  const RoadmapGantt = () => (
+    <div className="w-full p-6 bg-white rounded-lg shadow-lg mb-8">
+      <h3 className="text-xl font-bold mb-4 text-center">AI+PRD+DevOps 實施路線圖</h3>
+      <div className="w-full overflow-x-auto">
+        <svg viewBox="0 0 1000 400" className="w-full min-w-[800px]">
+          {/* 背景網格 */}
+          <defs>
+            <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+              <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#e5e7eb" strokeWidth="0.5" />
+            </pattern>
+          </defs>
+          <rect width="1000" height="400" fill="url(#grid)" />
+          
+          {/* 時間軸 */}
+          <line x1="100" y1="50" x2="900" y2="50" stroke="#374151" strokeWidth="2" />
+          {['0', '3個月', '6個月', '9個月', '12個月', '15個月', '18個月'].map((label, i) => (
+            <g key={i}>
+              <line x1={100 + i * 120} y1="45" x2={100 + i * 120} y2="55" stroke="#374151" strokeWidth="2" />
+              <text x={100 + i * 120} y="35" textAnchor="middle" className="text-sm">{label}</text>
+            </g>
+          ))}
+          
+          {/* 階段一：基礎建設 */}
+          <rect x="120" y="80" width="280" height="30" rx="5" fill="#dbeafe" stroke="#3b82f6" strokeWidth="2" />
+          <text x="260" y="100" textAnchor="middle" className="text-sm font-semibold">第一階段：基礎建設</text>
+          
+          <rect x="120" y="120" width="120" height="25" rx="3" fill="#93c5fd" />
+          <text x="180" y="137" textAnchor="middle" className="text-xs">數據治理體系</text>
+          
+          <rect x="250" y="150" width="100" height="25" rx="3" fill="#60a5fa" />
+          <text x="300" y="167" textAnchor="middle" className="text-xs">AI平台搭建</text>
+          
+          <rect x="120" y="180" width="240" height="25" rx="3" fill="#3b82f6" />
+          <text x="240" y="197" textAnchor="middle" className="text-xs">團隊培訓</text>
+          
+          {/* 階段二：試點實施 */}
+          <rect x="380" y="80" width="240" height="30" rx="5" fill="#dcfce7" stroke="#22c55e" strokeWidth="2" />
+          <text x="500" y="100" textAnchor="middle" className="text-sm font-semibold">第二階段：試點實施</text>
+          
+          <rect x="380" y="120" width="60" height="25" rx="3" fill="#86efac" />
+          <text x="410" y="137" textAnchor="middle" className="text-xs">試點選擇</text>
+          
+          <rect x="450" y="150" width="100" height="25" rx="3" fill="#4ade80" />
+          <text x="500" y="167" textAnchor="middle" className="text-xs">PRD智能化</text>
+          
+          <rect x="560" y="180" width="100" height="25" rx="3" fill="#22c55e" />
+          <text x="610" y="197" textAnchor="middle" className="text-xs">DevOps增強</text>
+          
+          {/* 階段三：規模化推廣 */}
+          <rect x="640" y="80" width="220" height="30" rx="5" fill="#fef3c7" stroke="#f59e0b" strokeWidth="2" />
+          <text x="750" y="100" textAnchor="middle" className="text-sm font-semibold">第三階段：規模化推廣</text>
+          
+          <rect x="670" y="120" width="120" height="25" rx="3" fill="#fcd34d" />
+          <text x="730" y="137" textAnchor="middle" className="text-xs">全面推廣</text>
+          
+          <rect x="700" y="150" width="160" height="25" rx="3" fill="#fbbf24" />
+          <text x="780" y="167" textAnchor="middle" className="text-xs">持續優化</text>
+          
+          <rect x="720" y="180" width="100" height="25" rx="3" fill="#f59e0b" />
+          <text x="770" y="197" textAnchor="middle" className="text-xs">卓越中心</text>
+        </svg>
+      </div>
+    </div>
+  );
+
   return (
     <article className="max-w-4xl mx-auto px-4 py-8">
       <header className="mb-12">
@@ -199,6 +427,9 @@ const campaignRequirements = socialTrendAnalyzer
           </DiagramBlock>
           <p>這個閉環系統的三個核心組件相互協作：</p>
         </SubSection>
+
+        {/* 插入核心架構圖 */}
+        <CoreArchitecture />
 
         <SubSection title="1.2 關鍵流程">
           <ol className="list-decimal pl-6">
@@ -235,7 +466,7 @@ const campaignRequirements = socialTrendAnalyzer
               <ul className="list-disc pl-6">
                 <li><strong>技術實現</strong>：利用 NLP（自然語言處理）技術分析多源數據</li>
                 <li><strong>數據來源</strong>：用戶評論、客服記錄、社交媒體、競品資料</li>
-                <li><strong>實例</strong>：電商平台通過 AI 分析社交媒體趨勢，自動在 PRD 中新增「短影音商品展示」需求，並定義具體指標（如「載入時間 &lt; 2秒」）</li>
+                <li><strong>實例</strong>：電商平台通過 AI 分析社交媒體趨勢，自動在 PRD 中新增「短影音商品展示」需求，並定義具體指標（如「載入時間 < 2秒」）</li>
               </ul>
             </div>
             
@@ -252,7 +483,7 @@ const campaignRequirements = socialTrendAnalyzer
               <h4 className="font-semibold text-lg mb-2">風險識別與規避</h4>
               <ul className="list-disc pl-6">
                 <li><strong>智能審查</strong>：在 PRD 評審階段，AI 掃描需求描述中的模糊詞彙</li>
-                <li><strong>量化建議</strong>：將「高性能」等抽象描述轉換為「響應時間 &lt; 200ms」等量化指標</li>
+                <li><strong>量化建議</strong>：將「高性能」等抽象描述轉換為「響應時間 < 200ms」等量化指標</li>
                 <li><strong>合規檢查</strong>：自動識別可能的法規違規風險並提出修正建議</li>
               </ul>
             </div>
@@ -338,9 +569,54 @@ const campaignRequirements = socialTrendAnalyzer
 
       <Section title="三、關鍵技術與工具鏈">
         <Table data={toolsTableData} />
+        
+        {/* 插入技術棧採用率圖 */}
+        <div className="w-full p-6 bg-white rounded-lg shadow-lg">
+          <h3 className="text-xl font-bold mb-4 text-center">AI 技術棧採用率分析</h3>
+          <ResponsiveContainer width="100%" height={400}>
+            <BarChart data={techStackData} layout="vertical" margin={{ left: 120 }}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis type="number" domain={[0, 100]} />
+              <YAxis dataKey="category" type="category" width={100} />
+              <Tooltip 
+                formatter={(value, name) => [`${value}%`, '採用率']}
+                contentStyle={{ backgroundColor: '#f9fafb', border: '1px solid #e5e7eb' }}
+              />
+              <Bar dataKey="adoption" fill="#6366f1" radius={[0, 4, 4, 0]}>
+                {techStackData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'][index]} />
+                ))}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
       </Section>
 
       <Section title="四、產業應用場景深度解析">
+        {/* 插入產業應用分布圖 */}
+        <div className="w-full p-6 bg-white rounded-lg shadow-lg mb-8">
+          <h3 className="text-xl font-bold mb-4 text-center">AI+PRD+DevOps 產業應用分布</h3>
+          <ResponsiveContainer width="100%" height={400}>
+            <PieChart>
+              <Pie
+                data={industryData}
+                cx="50%"
+                cy="50%"
+                labelLine={false}
+                label={(entry) => `${entry.name} ${entry.value}%`}
+                outerRadius={150}
+                fill="#8884d8"
+                dataKey="value"
+              >
+                {industryData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
+              <Tooltip />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+
         <SubSection title="4.1 智能製造：預測性維護與產線優化">
           <div className="mb-4">
             <h4 className="font-semibold mb-2">技術架構實施：</h4>
@@ -532,12 +808,119 @@ G --> C`}
             </ul>
           </div>
         </SubSection>
+
+        {/* 插入產業應用成熟度矩陣圖 */}
+        <div className="w-full p-6 bg-white rounded-lg shadow-lg mt-8">
+          <h3 className="text-xl font-bold mb-4 text-center">各產業 AI 應用成熟度分析</h3>
+          <ResponsiveContainer width="100%" height={400}>
+            <BarChart data={industryApplicationData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="industry" />
+              <YAxis domain={[0, 100]} />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="prd" name="PRD智能化" fill="#3b82f6" />
+              <Bar dataKey="devops" name="DevOps自動化" fill="#10b981" />
+              <Bar dataKey="aiops" name="AIOps運維" fill="#f59e0b" />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
       </Section>
 
       <Section title="五、優勢與價值分析">
+        {/* 插入關鍵指標卡片 */}
+        <div className="w-full p-6 bg-white rounded-lg shadow-lg mb-8">
+          <h3 className="text-xl font-bold mb-4 text-center">關鍵指標提升效果</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-blue-50 p-6 rounded-lg text-center">
+              <div className="text-4xl font-bold text-blue-600 mb-2">92%</div>
+              <div className="text-gray-600">需求準確率</div>
+              <div className="text-sm text-gray-500 mt-2">↑ 41.5% 提升</div>
+            </div>
+            <div className="bg-green-50 p-6 rounded-lg text-center">
+              <div className="text-4xl font-bold text-green-600 mb-2">50%</div>
+              <div className="text-gray-600">開發週期縮短</div>
+              <div className="text-sm text-gray-500 mt-2">從12週到6週</div>
+            </div>
+            <div className="bg-orange-50 p-6 rounded-lg text-center">
+              <div className="text-4xl font-bold text-orange-600 mb-2">3.2x</div>
+              <div className="text-gray-600">投資回報率</div>
+              <div className="text-sm text-gray-500 mt-2">18個月內實現</div>
+            </div>
+          </div>
+        </div>
+
         <SubSection title="5.1 量化效益評估">
           <Table data={benefitsTableData} />
+          
+          {/* 插入效益對比雷達圖 */}
+          <div className="w-full p-6 bg-white rounded-lg shadow-lg mt-6">
+            <h3 className="text-xl font-bold mb-4 text-center">傳統模式 vs AI 賦能模式效益對比</h3>
+            <ResponsiveContainer width="100%" height={400}>
+              <RadarChart data={benefitData}>
+                <PolarGrid stroke="#e5e7eb" />
+                <PolarAngleAxis dataKey="metric" className="text-sm" />
+                <PolarRadiusAxis angle={90} domain={[0, 100]} />
+                <Radar
+                  name="傳統模式"
+                  dataKey="traditional"
+                  stroke="#ef4444"
+                  fill="#ef4444"
+                  fillOpacity={0.3}
+                />
+                <Radar
+                  name="AI 賦能模式"
+                  dataKey="ai"
+                  stroke="#22c55e"
+                  fill="#22c55e"
+                  fillOpacity={0.3}
+                />
+                <Tooltip />
+                <Legend />
+              </RadarChart>
+            </ResponsiveContainer>
+          </div>
         </SubSection>
+
+        {/* 插入 ROI 趨勢圖 */}
+        <div className="w-full p-6 bg-white rounded-lg shadow-lg mt-8">
+          <h3 className="text-xl font-bold mb-4 text-center">投資回報率（ROI）趨勢分析</h3>
+          <ResponsiveContainer width="100%" height={400}>
+            <ComposedChart data={roiTimelineData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="month" />
+              <YAxis yAxisId="left" orientation="left" label={{ value: 'ROI (%)', angle: -90, position: 'insideLeft' }} />
+              <YAxis yAxisId="right" orientation="right" label={{ value: '金額 (萬元)', angle: 90, position: 'insideRight' }} />
+              <Tooltip />
+              <Legend />
+              <Area
+                yAxisId="left"
+                type="monotone"
+                dataKey="roi"
+                fill="#3b82f6"
+                stroke="#3b82f6"
+                fillOpacity={0.3}
+                name="ROI"
+              />
+              <Line
+                yAxisId="right"
+                type="monotone"
+                dataKey="investment"
+                stroke="#ef4444"
+                name="累積投資"
+                strokeWidth={2}
+              />
+              <Line
+                yAxisId="right"
+                type="monotone"
+                dataKey="return"
+                stroke="#22c55e"
+                name="累積回報"
+                strokeWidth={2}
+              />
+            </ComposedChart>
+          </ResponsiveContainer>
+        </div>
 
         <SubSection title="5.2 戰略價值分析">
           <ol className="list-decimal pl-6">
@@ -604,35 +987,8 @@ G --> C`}
         </SubSection>
 
         <SubSection title="6.3 實施路線圖">
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h4 className="font-semibold mb-4">AI+PRD+DevOps 實施路線圖</h4>
-            <div className="space-y-4">
-              <div>
-                <h5 className="font-medium text-blue-600">第一階段：基礎建設</h5>
-                <ul className="list-disc pl-6">
-                  <li>數據治理體系建立（90天）</li>
-                  <li>AI 平台選型與搭建（60天）</li>
-                  <li>團隊培訓與文化建設（180天）</li>
-                </ul>
-              </div>
-              <div>
-                <h5 className="font-medium text-green-600">第二階段：試點實施</h5>
-                <ul className="list-disc pl-6">
-                  <li>選擇試點項目（30天）</li>
-                  <li>PRD 智能化試點（60天）</li>
-                  <li>DevOps AI 增強（60天）</li>
-                </ul>
-              </div>
-              <div>
-                <h5 className="font-medium text-purple-600">第三階段：規模化推廣</h5>
-                <ul className="list-disc pl-6">
-                  <li>全面推廣實施（90天）</li>
-                  <li>持續優化與迭代（180天）</li>
-                  <li>建立卓越中心（60天）</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          {/* 插入實施路線圖 */}
+          <RoadmapGantt />
         </SubSection>
       </Section>
 
@@ -723,5 +1079,6 @@ G --> C`}
   );
 };
 
+
 // 使用高階組件包裝並自動註冊
-export default withPostMetadata(metadata, BlogPostPage);
+export default withPostMetadata(metadata, BlogPost);
