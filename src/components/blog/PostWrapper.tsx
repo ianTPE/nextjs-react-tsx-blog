@@ -7,14 +7,14 @@ export const PostRegistry: Record<string, {
   metadata: BlogPost;
 }> = {};
 
-// 高階組件，用於包裝每篇文章並自動註冊
-export function withPostMetadata(metadata: BlogPost, Component: React.ComponentType) {
-  // 自動註冊到全局註冊表
+// 簡化的高階組件
+export function withPostMetadata(metadata: BlogPost, Component: React.ComponentType): React.ComponentType {
+  // 註冊到全局註冊表
   PostRegistry[metadata.slug] = {
     Component,
     metadata
   };
   
-  // 返回原始組件，但已經註冊到系統中
+  // 直接返回組件而不進行包裝
   return Component;
 }

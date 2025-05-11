@@ -31,7 +31,6 @@ const allPostFiles = getAllFiles(postsDir);
 // 基於文件路徑生成導入語句
 const importStatements = allPostFiles.map(filePath => {
   // 將文件路徑轉換為相對於 PostLoader.tsx 的路徑
-  // PostLoader.tsx 位於 src/components/blog 目錄中，而文章在 src/components/blog/posts 目錄中
   const relativePath = path.relative(postLoaderDir, filePath);
   // 將反斜杠轉換為正斜杠（對於Windows系統）
   const importPath = `./${relativePath.replace(/\\/g, '/')}`;
@@ -43,12 +42,14 @@ const importStatements = allPostFiles.map(filePath => {
 const template = `// 自動生成的文件 - 請勿手動編輯
 import React from 'react';
 
-// 自動導入所有文章
+// 導入所有文章組件
 ${importStatements}
 
 export function PostLoader() {
   return null;
 }
+
+export default PostLoader;
 `;
 
 fs.writeFileSync(
