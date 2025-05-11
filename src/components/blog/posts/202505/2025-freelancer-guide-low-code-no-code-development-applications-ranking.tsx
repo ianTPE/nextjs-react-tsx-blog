@@ -1,4 +1,4 @@
-import type { JSX } from 'react';
+import React from 'react';
 import type { BlogPost } from '../../../../types/blog';
 import { withPostMetadata } from '../../PostWrapper';
 import LcncRankingChart from './components/lcnc-ranking-chart';
@@ -25,7 +25,7 @@ const metadata: BlogPost = {
 
 
 // 文章內容組件
-function FreelancerGuideForLowCode(): JSX.Element {
+function FreelancerGuideForLowCode() {
     return (
       <div className="post-content">
          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mt-8 mb-4 text-black dark:text-white">前言：無代碼革命與自由工作新機遇</h2>
