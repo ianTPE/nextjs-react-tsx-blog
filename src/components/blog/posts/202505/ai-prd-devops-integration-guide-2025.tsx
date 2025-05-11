@@ -18,7 +18,6 @@ const metadata: BlogPost = {
   readTime: 15
 };
 
-
 import {
   BarChart,
   Bar,
@@ -174,7 +173,7 @@ const CoreArchitecture = () => (
   </div>
 );
 
-const BlogPost: React.FC = () => {
+const BlogPostComponent: React.FC = () => {
   // 圖表數據
   const benefitData = [
     {
@@ -466,7 +465,7 @@ const campaignRequirements = socialTrendAnalyzer
               <ul className="list-disc pl-6">
                 <li><strong>技術實現</strong>：利用 NLP（自然語言處理）技術分析多源數據</li>
                 <li><strong>數據來源</strong>：用戶評論、客服記錄、社交媒體、競品資料</li>
-                <li><strong>實例</strong>：電商平台通過 AI 分析社交媒體趨勢，自動在 PRD 中新增「短影音商品展示」需求，並定義具體指標（如「載入時間 < 2秒」）</li>
+                <li><strong>實例</strong>：電商平台通過 AI 分析社交媒體趨勢，自動在 PRD 中新增「短影音商品展示」需求，並定義具體指標（如「載入時間 &lt; 2秒」）</li>
               </ul>
             </div>
             
@@ -483,7 +482,7 @@ const campaignRequirements = socialTrendAnalyzer
               <h4 className="font-semibold text-lg mb-2">風險識別與規避</h4>
               <ul className="list-disc pl-6">
                 <li><strong>智能審查</strong>：在 PRD 評審階段，AI 掃描需求描述中的模糊詞彙</li>
-                <li><strong>量化建議</strong>：將「高性能」等抽象描述轉換為「響應時間 < 200ms」等量化指標</li>
+                <li><strong>量化建議</strong>：將「高性能」等抽象描述轉換為「響應時間 &lt; 200ms」等量化指標</li>
                 <li><strong>合規檢查</strong>：自動識別可能的法規違規風險並提出修正建議</li>
               </ul>
             </div>
@@ -1079,6 +1078,5 @@ G --> C`}
   );
 };
 
-
 // 使用高階組件包裝並自動註冊
-export default withPostMetadata(metadata, BlogPost);
+export default withPostMetadata(metadata, BlogPostComponent);
