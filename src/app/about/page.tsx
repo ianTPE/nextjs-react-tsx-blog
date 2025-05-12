@@ -82,22 +82,6 @@ export default function About() {
         </div>
       </section>
       
-      {/* About blog section */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">部落格簡介</h2>
-        <div className="space-y-4">
-          <p>
-            這個部落格的核心特色是純 React + TypeScript，並不是特定於 Next.js，未來我也可能會用 Vite 來做一個新的 blog。這裡的內容、結構與流程，都是「vibe coding」的產物，以最純粹的 React + TypeScript 來呈現。
-          </p>
-          <p>
-            一開始我曾用 MDX，但發現 Claude 產生的 React 組件並不容易直接放進 MDX，會遇到很多問題。因此我找到最好的解決方案，就是直接用純 React + TypeScript 撰寫所有 blog 內容。
-          </p>
-          <p>
-            本站的內容大多是由 Claude 產生 React 組件，再用 Claude 與 Windsurf OpenAI 協作整理、架構這個網站。我的目標是讓寫作流程盡量簡單，大部分內容都是「vibe code」產生，幾乎不需要手動 coding。
-          </p>
-        </div>
-      </section>
-      
       {/* About author section */}
       <section className="mb-12 bg-white p-8 rounded-xl shadow-sm">
         <div className="flex flex-col md:flex-row items-center gap-8">
